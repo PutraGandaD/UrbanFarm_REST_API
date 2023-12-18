@@ -44,8 +44,8 @@ const jualPanenController = {
     },
     create: async(req, res) => {
         try {
-            const { id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi } = req.body
-            const sql = "insert into jualpanen (id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi) values (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            const { id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam } = req.body
+            const sql = "insert into jualpanen (id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi])
             res.json({
                 data: rows
@@ -60,10 +60,10 @@ const jualPanenController = {
     
     update: async(req, res) => {
         try {
-            const { id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi } = req.body
+            const { id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi, jenisTanaman, metodeTanam } = req.body
             const { id } = req.params
-            const sql = "update jualpanen set id_user = ?, username = ?, profileimg_url = ?, title = ?, content = ?, whatsapp_no = ?, contentimg_url = ?, kota = ?, provinsi = ? where id = ?"
-            const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi, id])
+            const sql = "update jualpanen set id_user = ?, username = ?, profileimg_url = ?, title = ?, content = ?, whatsapp_no = ?, contentimg_url = ?, kota = ?, jenisTanaman = ?, metodeTanam = ? where id = ?"
+            const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam, id])
             res.json({
                 data: rows
             })
