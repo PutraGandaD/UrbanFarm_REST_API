@@ -1,6 +1,6 @@
 const pool = require("../database/index")
 
-const artikelController = {
+const articlesController = {
     getAll: async(req, res) => {
         try {
             const [rows, fields] = await pool.query("select * from articles")
@@ -77,4 +77,4 @@ const artikelController = {
     }
 }
 
-module.exports = artikelController
+module.exports = articlesController

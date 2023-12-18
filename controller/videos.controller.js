@@ -1,6 +1,6 @@
 const pool = require("../database/index")
 
-const artikelController = {
+const videosController = {
     getAll: async(req, res) => {
         try {
             const [rows, fields] = await pool.query("select * from videos")
@@ -77,4 +77,4 @@ const artikelController = {
     }
 }
 
-module.exports = artikelController
+module.exports = videosController

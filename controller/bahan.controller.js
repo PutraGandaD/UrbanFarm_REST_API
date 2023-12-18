@@ -1,9 +1,9 @@
 const pool = require("../database/index")
 
-const alatController = {
+const bahanController = {
     getAll: async(req, res) => {
         try {
-            const [rows, fields] = await pool.query("select * from alat")
+            const [rows, fields] = await pool.query("select * from bahan")
             res.json({
                 data: rows
             })
@@ -17,7 +17,7 @@ const alatController = {
     getById : async(req, res) => {
         try {
             const { id } = req.params
-            const [rows, fields] = await pool.query("select * from alat where id = ?", [id])
+            const [rows, fields] = await pool.query("select * from bahan where id = ?", [id])
             res.json({
                 data: rows
             })
@@ -31,7 +31,7 @@ const alatController = {
     getByJenisTanaman : async(req, res) => {
         try {
             const { jenisTanaman } = req.params
-            const [rows, fields] = await pool.query("select * from alat where jenisTanaman = ?", [jenisTanaman])
+            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ?", [jenisTanaman])
             res.json({
                 data: rows
             })
@@ -45,7 +45,7 @@ const alatController = {
     create: async(req, res) => {
         try {
             const { title, url_beli, jenisTanaman } = req.body
-            const sql = "insert into alat (title, url_beli, jenisTanaman) values (?, ?, ?)"
+            const sql = "insert into bahan (title, url_beli, jenisTanaman) values (?, ?, ?)"
             const [rows, fields] = await pool.query(sql, [title, url_beli, jenisTanaman])
             res.json({
                 data: rows
@@ -62,7 +62,7 @@ const alatController = {
         try {
             const {title, url_beli, jenisTanaman} = req.body
             const { id } = req.params
-            const sql = "update alat set title = ?, url_beli = ?, jenisTanaman = ? where id = ?"
+            const sql = "update bahan set title = ?, url_beli = ?, jenisTanaman = ? where id = ?"
             const [rows, fields] = await pool.query(sql, [title, url_beli, jenisTanaman, id])
             res.json({
                 data: rows
@@ -78,7 +78,7 @@ const alatController = {
     delete: async (req, res) => {
         try {
             const { id } = req.params
-            const [rows, fields] = await pool.query("delete from alat where id = ?" , [id])
+            const [rows, fields] = await pool.query("delete from bahan where id = ?" , [id])
             res.json({
                 data: rows
             })
@@ -91,4 +91,4 @@ const alatController = {
     }
 }
 
-module.exports = alatController
+module.exports = bahanController
