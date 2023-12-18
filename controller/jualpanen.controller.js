@@ -46,7 +46,7 @@ const jualPanenController = {
         try {
             const { id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam } = req.body
             const sql = "insert into jualpanen (id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, provinsi])
+            const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam])
             res.json({
                 success: true,
                 message: 'Jual panen created successfully',
