@@ -1,4 +1,6 @@
 ## UrbanFarm_REST_API
+Tech stack :\
+ExpressJS, Node.js, npm(mysql2), MySQL(database)
 
 # Usages
 ```
@@ -10,5 +12,5 @@ GET / POST / PUT / DELETE =
 /api/v1/bahan
 and more...
 
-See router folder for detailed routes.
+See "routes" folder for detailed routes.
 ```
