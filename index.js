@@ -5,12 +5,14 @@ require('dotenv').config()
 
 const articlesRouter = require('./routes/articles.router')
 const videosRouter = require('./routes/videos.router')
+const jualPanenRouter = require('./routes/jualpanen.router')
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
 app.use("/api/v1/articles", articlesRouter)
 app.use("/api/v1/videos", videosRouter)
+app.use("/api/v1/jualpanen", jualPanenRouter)
 
 const PORT = process.env.PORT || 3000
 
