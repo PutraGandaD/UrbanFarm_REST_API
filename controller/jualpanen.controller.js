@@ -48,9 +48,7 @@ const jualPanenController = {
             const sql = "insert into jualpanen (id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam])
             res.json({
-                success: true,
                 message: 'Jual panen created successfully',
-                data: rows
             })
         } catch (error) {
             console.log(error)
@@ -67,9 +65,7 @@ const jualPanenController = {
             const sql = "update jualpanen set id_user = ?, username = ?, profileimg_url = ?, title = ?, content = ?, whatsapp_no = ?, contentimg_url = ?, kota = ?, jenisTanaman = ?, metodeTanam = ? where id = ?"
             const [rows, fields] = await pool.query(sql, [id_user, username, profileimg_url, title, content, whatsapp_no, contentimg_url, kota, jenisTanaman, metodeTanam, id])
             res.json({
-                success: true,
                 message: 'Jual panen updated successfully',
-                data: rows
             })
         } catch (error) {
             console.log(error)
@@ -84,9 +80,7 @@ const jualPanenController = {
             const { id } = req.params
             const [rows, fields] = await pool.query("delete from jualpanen where id = ?" , [id])
             res.json({
-                success: true,
                 message: 'Jual panen deleted successfully',
-                data: rows
             })
         } catch (error) {
             console.log(error)
