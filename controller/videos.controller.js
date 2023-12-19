@@ -30,7 +30,7 @@ const videosController = {
     },
     create: async(req, res) => {
         try {
-            const { title, imgurl, videourl } = req.body
+            const { title, imgurl, videourl, source } = req.body
             const sql = "insert into videos (title, imgurl, videourl, source) values (?, ?, ?, ?)"
             const [rows, fields] = await pool.query(sql, [title, imgurl, videourl, source])
             res.json({
@@ -46,7 +46,7 @@ const videosController = {
 
     update: async(req, res) => {
         try {
-            const {title, imgurl, videourl} = req.body
+            const {title, imgurl, videourl, source} = req.body
             const { id } = req.params
             const sql = "update videos set title = ?, imgurl = ?, videourl = ?, source = ? where id = ?"
             const [rows, fields] = await pool.query(sql, [title, imgurl, videourl, source, id])
