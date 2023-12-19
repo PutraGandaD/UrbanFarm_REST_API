@@ -31,8 +31,8 @@ const videosController = {
     create: async(req, res) => {
         try {
             const { title, imgurl, videourl } = req.body
-            const sql = "insert into videos (title, imgurl, videourl) values (?, ?, ?)"
-            const [rows, fields] = await pool.query(sql, [title, imgurl, videourl])
+            const sql = "insert into videos (title, imgurl, videourl, source) values (?, ?, ?, ?)"
+            const [rows, fields] = await pool.query(sql, [title, imgurl, videourl, source])
             res.json({
                 data: rows
             })
@@ -48,8 +48,8 @@ const videosController = {
         try {
             const {title, imgurl, videourl} = req.body
             const { id } = req.params
-            const sql = "update videos set title = ?, imgurl = ?, videourl = ? where id = ?"
-            const [rows, fields] = await pool.query(sql, [title, imgurl, videourl, id])
+            const sql = "update videos set title = ?, imgurl = ?, videourl = ?, source = ? where id = ?"
+            const [rows, fields] = await pool.query(sql, [title, imgurl, videourl, source, id])
             res.json({
                 data: rows
             })
