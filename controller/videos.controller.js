@@ -3,7 +3,7 @@ const pool = require("../database/index")
 const videosController = {
     getAll: async(req, res) => {
         try {
-            const [rows, fields] = await pool.query("select * from videos")
+            const [rows, fields] = await pool.query("select * from videos ORDER BY id DESC")
             res.json({
                 data: rows
             })

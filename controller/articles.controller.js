@@ -3,7 +3,7 @@ const pool = require("../database/index")
 const articlesController = {
     getAll: async(req, res) => {
         try {
-            const [rows, fields] = await pool.query("select * from articles")
+            const [rows, fields] = await pool.query("select * from articles ORDER BY id DESC")
             res.json({
                 data: rows
             })
