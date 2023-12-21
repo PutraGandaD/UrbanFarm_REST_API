@@ -31,7 +31,7 @@ const bahanController = {
     getByJenisTanaman : async(req, res) => {
         try {
             const { jenisTanaman, metodeTanam } = req.params
-            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ?, metodeTanam = ?", [jenisTanaman. metodeTanam])
+            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ? AND metodeTanam = ?", [jenisTanaman. metodeTanam])
             res.json({
                 data: rows
             })
