@@ -17,7 +17,7 @@ const jualPanenController = {
     getByIdUser : async(req, res) => {
         try {
             const { id_user } = req.params
-            const [rows, fields] = await pool.query("select * from jualpanen where id_user = ?", [id_user])
+            const [rows, fields] = await pool.query("select * from jualpanen where id_user = ? ORDER BY id DESC", [id_user])
             res.json({
                 data: rows
             })
