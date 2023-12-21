@@ -46,7 +46,7 @@ const alatController = {
         try {
             const { title, url_beli, url_gambar, jenisTanaman } = req.body
             const sql = "insert into alat (title, url_beli, url_gambar, jenisTanaman) values (?, ?, ?, ?)"
-            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman, id])
+            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman])
             res.json({
                 data: rows
             })
