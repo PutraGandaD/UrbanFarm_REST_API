@@ -30,8 +30,8 @@ const bahanController = {
     },
     getByJenisTanaman : async(req, res) => {
         try {
-            const { jenisTanaman } = req.params
-            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ?", [jenisTanaman])
+            const { jenisTanaman, metodeTanam } = req.params
+            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ?, metodeTanam = ?", [jenisTanaman. metodeTanam])
             res.json({
                 data: rows
             })
@@ -44,9 +44,9 @@ const bahanController = {
     },
     create: async(req, res) => {
         try {
-            const { title, url_beli, url_gambar, jenisTanaman } = req.body
-            const sql = "insert into bahan (title, url_beli, url_gambar, jenisTanaman) values (?, ?, ?)"
-            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman])
+            const { title, url_beli, url_gambar, jenisTanaman, metodeTanam } = req.body
+            const sql = "insert into bahan (title, url_beli, url_gambar, jenisTanaman, metodeTanam) values (?, ?, ?, ?, ?)"
+            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman, metodeTanam])
             res.json({
                 data: rows
             })
@@ -60,10 +60,10 @@ const bahanController = {
 
     update: async(req, res) => {
         try {
-            const {title, url_beli, url_gambar, jenisTanaman} = req.body
+            const {title, url_beli, url_gambar, jenisTanaman, metodeTanam} = req.body
             const { id } = req.params
-            const sql = "update bahan set title = ?, url_beli = ?, url_gambar = ?, jenisTanaman = ? where id = ?"
-            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman, id])
+            const sql = "update bahan set title = ?, url_beli = ?, url_gambar = ?, jenisTanaman = ?, metodeTanam = ? where id = ?"
+            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman, metodeTanam, id])
             res.json({
                 data: rows
             })
