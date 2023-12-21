@@ -44,9 +44,9 @@ const bahanController = {
     },
     create: async(req, res) => {
         try {
-            const { title, url_beli, jenisTanaman } = req.body
-            const sql = "insert into bahan (title, url_beli, jenisTanaman) values (?, ?, ?)"
-            const [rows, fields] = await pool.query(sql, [title, url_beli, jenisTanaman])
+            const { title, url_beli, url_gambar, jenisTanaman } = req.body
+            const sql = "insert into bahan (title, url_beli, url_gambar, jenisTanaman) values (?, ?, ?)"
+            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman])
             res.json({
                 data: rows
             })
@@ -60,10 +60,10 @@ const bahanController = {
 
     update: async(req, res) => {
         try {
-            const {title, url_beli, jenisTanaman} = req.body
+            const {title, url_beli, url_gambar, jenisTanaman} = req.body
             const { id } = req.params
-            const sql = "update bahan set title = ?, url_beli = ?, jenisTanaman = ? where id = ?"
-            const [rows, fields] = await pool.query(sql, [title, url_beli, jenisTanaman, id])
+            const sql = "update bahan set title = ?, url_beli = ?, url_gambar = ?, jenisTanaman = ? where id = ?"
+            const [rows, fields] = await pool.query(sql, [title, url_beli, url_gambar, jenisTanaman, id])
             res.json({
                 data: rows
             })
