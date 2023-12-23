@@ -28,18 +28,18 @@ const bahanController = {
             })
         }
     },
-    getByJenisTanaman : async(req, res) => {
+    getByJenisTanaman: async (req, res) => {
         try {
-            const { jenisTanaman, metodeTanam } = req.params
-            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ? AND metodeTanam = ?", [jenisTanaman. metodeTanam])
+            const { jenisTanaman, metodeTanam } = req.params;
+            const [rows, fields] = await pool.query("select * from bahan where jenisTanaman = ? AND metodeTanam = ?", [jenisTanaman, metodeTanam]);
             res.json({
                 data: rows
-            })
+            });
         } catch (error) {
-            console.log(error)
+            console.log(error);
             res.json({
                 state: "error"
-            })
+            });
         }
     },
     create: async(req, res) => {
